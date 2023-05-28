@@ -49,7 +49,7 @@ export function Home(props){
                 {cidades.map((cidade) => {
                     return (
                         <option value={cidade.nome}>
-                            {cidade.nome} - {cidade.sigla}
+                            {cidade.nome}
                         </option>
                     )
                 })}
