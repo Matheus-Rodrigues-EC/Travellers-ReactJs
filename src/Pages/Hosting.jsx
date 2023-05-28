@@ -111,7 +111,7 @@ const Voltar = styled.h2`
 `
 
 const Title = styled.h1`
-    margin: 75px auto 2.5% auto;
+    margin: 20% auto 2.5% auto;
     color: #FFFFFF;
     text-shadow:    -1px -1px 1.5px #000, 
                         -1px 1px 1.5px #000,                    
@@ -121,6 +121,7 @@ const Title = styled.h1`
     
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 400;
+    font-size: 30px;
 `
 
 const Slide = styled.div`
@@ -195,13 +196,20 @@ const Detalhes = styled.div`
     border-radius: 15px;
     background-color: rgb(0, 0, 0, 0.5);
     box-sizing: border-box;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 400;
 
     h2{
         margin: 1% auto;
-        font-family: 'Lexend Deca', sans-serif;
-        font-weight: 400;
+        font-size: 18px;
+    }
+    ul{
+        padding: 0 10% ;
+        box-sizing: border-box;
     }
     li{
         margin: 1.5% 0;
+        font-size: 14px;
+        box-sizing: border-box;
     }
 `

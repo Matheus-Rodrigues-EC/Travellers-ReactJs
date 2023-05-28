@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export function Home(props){
-    const {setIdHotel} = props;
+    const {setIdHotel, setIdPassagem} = props;
     const [cidades, setCidades] = useState([]);
     const [visible, setVisible] = useState('none');
     const [hoteis, setHoteis] = useState([]);
@@ -84,7 +84,10 @@ export function Home(props){
                     {(passagens.length) ? (
                         passagens.map((passagem) => {
                             return(
-                                <li key={passagem.id} onClick={() => alert(passagem.Companhia)}>
+                                <li key={passagem.id} onClick={() => {
+                                        setIdPassagem({id: passagem.id,cidade: passagem.Local_Partida});
+                                        Navigate(`/passagem/${passagem.id}`)
+                                    }}>
                                     <Infos>
                                         <p>{passagem.Companhia} - {passagem.Preco_passagem}</p>
                                     </Infos>

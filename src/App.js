@@ -4,13 +4,14 @@ import styled from "styled-components";
 import Navbar from "./Components/Navbar";
 import { Home } from "./Pages/Home";
 import { Hosting } from "./Pages/Hosting";
+import { Ticket } from "./Pages/Ticket";
 import Viagem from './Assets/Viagem.jpg'
 import { useState } from "react";
 
 function App() {
 
   const [idHotel, setIdHotel] = useState();
-  const [idPassagem, setIdPassagem] = useState();
+  const [idPassagem, setIdPassagem] = useState({});
 
   return (
     <Container Viagem={Viagem}>
@@ -21,7 +22,7 @@ function App() {
           <Routes Routes>
               <Route path="/" element={<Home setIdHotel={setIdHotel} setIdPassagem={setIdPassagem} />} />
               <Route path={`/hotel/${idHotel}`} element={<Hosting idHotel={idHotel} />} />
-              <Route path="/passagem/:id" element={<Hosting idPassagem={idPassagem} />} />
+              <Route path={`/passagem/${idPassagem.id}`} element={<Ticket idPassagem={idPassagem} />} />
           </Routes>
           
         </BrowserRouter>
