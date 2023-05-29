@@ -68,7 +68,7 @@ export function Ticket(props){
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 50px 0 0 0;
+    margin: 75px 0 0 0;
     width: auto;
     height: 100vh;
     box-sizing: border-box;
