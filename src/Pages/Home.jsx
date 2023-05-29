@@ -3,10 +3,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
+import cidade1 from '../Assets/cidades/1.jpg';
+import cidade2 from '../Assets/cidades/2.jpg';
+import cidade3 from '../Assets/cidades/3.jpg';
+
+// const cidades = [cidade1, cidade2, cidade3];
+
 export function Home(props){
     const {setIdHotel, setIdPassagem} = props;
     const [cidades, setCidades] = useState([]);
     const [visible, setVisible] = useState('none');
+    const [opc, setOpc] = useState('flex');
     const [hoteis, setHoteis] = useState([]);
     const [passagens, setPassagens] = useState([]);
 
@@ -33,10 +40,12 @@ export function Home(props){
                 setHoteis(res.data.Hoteis);
                 setPassagens(res.data.Passagens);
                 setVisible('flex');
+                setOpc('none');
             }else{
                 setHoteis([]);
                 setPassagens([]);
                 setVisible('none');
+                setOpc('flex');
             }
         })
         .catch((error) => {alert(error.message)})
@@ -105,6 +114,19 @@ export function Home(props){
                 </Listados>
             </Listas>
 
+            <Opc opc={opc} >
+                <Seletor onClick={() => Navigate('/passagens')} >
+                    <img src={cidade2} alt="imagens de cidades" />
+                    <h3>Escolha como chegar nos seus sonhos.</h3>
+                    <h3>Com preços e datas</h3>
+                </Seletor>
+                <Seletor onClick={() => Navigate('/hoteis')} >
+                    <img src={cidade3} alt="imagens de cidades" />
+                    <h3>Escolha sua estadia no paraíso.</h3>
+                    <h3>Veja nossas acomodações</h3>
+                </Seletor>
+            </Opc>
+
         </Container>
     )
 }
@@ -112,7 +134,7 @@ export function Home(props){
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 5% 0 0 0;
     padding: 0 5%;
     width: auto;
     height: 100vh;
@@ -120,7 +142,7 @@ const Container = styled.div`
 `
 
 const Buscador = styled.select`
-    margin: 15% auto 5% auto;
+    margin: 100px auto 0 auto;
     width: 70%;
     height: 50px;
     font-family: 'Lexend Deca', sans-serif;
@@ -129,6 +151,8 @@ const Buscador = styled.select`
 
     border-radius: 5px;
     box-sizing: border-box;
+    animation: surgir 1.5s;
+
 `
 
 const Listas = styled.div`
@@ -139,9 +163,11 @@ const Listas = styled.div`
     @keyframes surgir {
         from {
             transform: translateY(10px);
+            opacity: 0;
         }
         to {
             transform: translateY(0);
+            opacity: 1;
         }
     } 
     animation: surgir 1.5s;
@@ -162,14 +188,6 @@ const Destino = styled.h2`
                         1px 0px 1.5px #000;
     }
 
-    @keyframes surgir {
-        from {
-            transform: translateY(10px);
-        }
-        to {
-            transform: translateY(0);
-        }
-    } 
     animation: surgir 1.5s;
 `
 
@@ -194,6 +212,12 @@ const Listados = styled.ul`
     list-style-type: none;
 
     background-color: rgb(0, 0, 0, 0.5);
+    transition: 1s;
+    cursor: pointer;
+    :hover{
+        background-color: rgb(0, 0, 0, 0.75);
+        transition: 1s;
+    }
 `
 
 const Infos = styled.div`
@@ -203,5 +227,63 @@ const Infos = styled.div`
         margin: 1%;
         font-family: 'Lexend Deca', sans-serif;
         color: #FFFFFF;
+    }
+`
+
+const Opc = styled.div`
+    display: ${(props) => props.opc};
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0 0 10% 0;
+    
+    @keyframes surgir {
+        from {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    } 
+    animation: surgir 1.5s;
+`
+
+const  Seletor = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0; 
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    background-color: rgb(0, 0, 0, 0.5);
+    transition: 1s;
+    cursor: pointer;
+    box-sizing: border-box;
+    :hover{
+        background-color: rgb(0, 0, 0, 0.75);
+        transition: 1s;
+    }
+
+    img {
+        width: 90%;
+        height: fit-content;
+        margin: 5% auto;
+
+        border-radius: 15px;
+    }
+
+    h3 {
+        text-align: center;
+        color: #FFFFFF;
+        padding: 0 5%;
+
+        font-size: 18px;
+        font-family: 'Lexend Deca', sans-serif;
+        font-weight: 400;
     }
 `

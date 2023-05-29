@@ -111,7 +111,7 @@ const Voltar = styled.h2`
 `
 
 const Title = styled.h1`
-    margin: 20% auto 2.5% auto;
+    margin: 100px auto 2.5% auto;
     color: #FFFFFF;
     text-shadow:    -1px -1px 1.5px #000, 
                         -1px 1px 1.5px #000,                    
@@ -132,6 +132,12 @@ const Slide = styled.div`
     padding: 0 5%;
     border: 1px solid #000000;
     background-color: rgb(0, 0, 0, 0.5);
+    transition: 1s;
+    cursor: pointer;
+    :hover{
+        background-color: rgb(0, 0, 0, 0.75);
+        transition: 1s;
+    }
     box-sizing: border-box;
     justify-content: space-around;
 
@@ -195,6 +201,12 @@ const Detalhes = styled.div`
     border: 1px solid #000000;
     border-radius: 15px;
     background-color: rgb(0, 0, 0, 0.5);
+    transition: 1s;
+    cursor: pointer;
+    :hover{
+        background-color: rgb(0, 0, 0, 0.75);
+        transition: 1s;
+    }
     box-sizing: border-box;
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 400;
