@@ -218,6 +218,11 @@ const Detalhes = styled.div`
     ul{
         padding: 0 10% ;
         box-sizing: border-box;
+        overflow-x: scroll;
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
     }
     li{
         margin: 1.5% 0;

@@ -71,11 +71,11 @@ const Voltar = styled.h2`
 `
 
 const List = styled.ul`
-    margin:  25% auto;
+    margin:  5% auto;
     padding: 3%;
     box-sizing: border-box;
     width: 95%;
-    height: auto;
+    height: 75%;
 
     border-radius: 15px;
     border: 1px solid #000000;
