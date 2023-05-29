@@ -93,7 +93,7 @@ export function Hosting(props){
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 50px 0 0 0;
     width: auto;
     height: 100vh;
     box-sizing: border-box;

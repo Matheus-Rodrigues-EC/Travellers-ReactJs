@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import cidade1 from '../Assets/cidades/1.jpg';
+// import cidade1 from '../Assets/cidades/1.jpg';
 import cidade2 from '../Assets/cidades/2.jpg';
 import cidade3 from '../Assets/cidades/3.jpg';
 
@@ -31,7 +31,7 @@ export function Home(props){
             .catch((error) => {
                 alert(error.message);
             })
-    }, []);
+    }, [hoteis, passagens]);
 
     function buscarDados(busca){
         axios.get(`${process.env.REACT_APP_API_URL}/home/${busca}`)
@@ -134,7 +134,7 @@ export function Home(props){
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 5% 0 0 0;
+    margin: 50px 0 0 0;
     padding: 0 5%;
     width: auto;
     height: 100vh;
